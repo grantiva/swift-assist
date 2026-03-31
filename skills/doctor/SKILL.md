@@ -1,5 +1,7 @@
+---
+name: doctor
+description: Walk the running app using computer use, inspect the view hierarchy with Grantiva, and report elements missing accessibility identifiers. Use for accessibility audits or test preparation.
 argument-hint: [--screen=<ViewName>] [--json] [--fix]
-description: Walk the running app using computer use, inspect the view hierarchy with Grantiva, and report elements missing accessibility identifiers. Use when you need to audit accessibility, find untestable UI elements, or prepare for test generation. Triggers on "check accessibility", "scan identifiers", "doctor", "audit UI".
 ---
 
 # Swift Assist: Doctor

@@ -1,5 +1,7 @@
+---
+name: test
+description: Run generated test flows against the app in the simulator using Grantiva. Use after /swift-assist:make-tests to execute and validate your user flows.
 argument-hint: [--flow=<name>] [--all] [--json]
-description: Run generated test flows against the app in the simulator using Grantiva. Use after /swift-assist:make-tests to execute and validate your user flows. Triggers on "run tests", "test flows", "execute tests".
 ---
 
 # Swift Assist: Test

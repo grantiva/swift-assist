@@ -1,5 +1,7 @@
+---
+name: vrt
+description: Run visual regression testing using Grantiva's diff pipeline. Capture screenshots, compare against baselines, and report visual differences. Use for catching unintended UI changes.
 argument-hint: [--baseline] [--compare] [--threshold=<percent>] [--json]
-description: Run visual regression testing using Grantiva's diff pipeline. Capture screenshots, compare against baselines, and report visual differences. Use for catching unintended UI changes. Triggers on "visual regression", "VRT", "screenshot diff", "UI changed".
 ---
 
 # Swift Assist: VRT

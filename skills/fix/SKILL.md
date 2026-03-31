@@ -1,5 +1,7 @@
+---
+name: fix
+description: Apply accessibility identifier fixes from a doctor report to Swift source files. Adds .accessibilityIdentifier() modifiers to interactive elements. Use after /swift-assist:doctor.
 argument-hint: [--report=<path>] [--dry-run] [--screen=<ViewName>]
-description: Apply accessibility identifier fixes from a doctor report to your Swift source files. Adds .accessibilityIdentifier() modifiers to interactive elements. Use after running /swift-assist:doctor. Triggers on "fix accessibility", "add identifiers", "apply doctor".
 ---
 
 # Swift Assist: Fix

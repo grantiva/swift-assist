@@ -1,0 +1,51 @@
+# Real grantiva.yml from the Landmarks app after running make-tests
+# Tab screens use label text, inner elements use accessibility identifiers
+
+scheme: Landmarks
+simulator: iPhone 17 Pro
+bundle_id: com.grantiva.examples.landmarks
+
+screens:
+  - name: Landmarks
+    path: launch
+
+  - name: Favorites
+    path:
+      - tap: "Favorites"
+
+  - name: Grantiva
+    path:
+      - tap: "Grantiva"
+
+  - name: Feedback
+    path:
+      - tap: "Feedback"
+
+  - name: DeepLinks
+    path:
+      - tap: "Deep Links"
+
+  - name: CachingDemo
+    path:
+      - tap: "deeplinks-link-caching-demo"
+      - wait: 1
+
+  - name: LandmarkDetail
+    path:
+      - tap: "Landmarks"
+      - wait: 5
+      - tap: "Golden Gate Bridge"
+      - wait: 1
+
+  - name: VisitConfirmation
+    path:
+      - tap: "Landmarks"
+      - wait: 5
+      - tap: "Golden Gate Bridge"
+      - wait: 1
+      - tap: "Plan Visit"
+      - wait: 1
+
+diff:
+  threshold: 0.02
+  perceptual_threshold: 5.0

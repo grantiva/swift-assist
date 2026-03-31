@@ -1,5 +1,7 @@
+---
+name: make-tests
+description: Walk the app using computer use and generate Grantiva screen definitions and flow YAML files for every discovered user flow. Use after /swift-assist:doctor for reliable tests.
 argument-hint: [--flow=<name>] [--all] [--output=<dir>]
-description: Walk the app using computer use and generate Grantiva screen definitions and flow YAML files for every discovered user flow. Use after /swift-assist:doctor to leverage accessibility identifiers for reliable tests. Triggers on "generate tests", "make tests", "create flows", "maestro".
 ---
 
 # Swift Assist: Make Tests

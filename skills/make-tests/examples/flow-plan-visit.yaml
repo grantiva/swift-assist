@@ -1,0 +1,14 @@
+appId: com.grantiva.examples.landmarks
+---
+# Flow: Plan a visit to a landmark
+- launchApp
+- assertVisible: "Landmarks"
+- tapOn: "Golden Gate Bridge"
+- assertVisible: "Plan Visit"
+- tapOn: "landmark-detail-link-plan-visit"
+- assertVisible: "Visit Scheduled!"
+- assertVisible: "visit-confirmation-button-done"
+- takeScreenshot: "Visit Confirmation"
+- tapOn: "visit-confirmation-button-done"
+- assertVisible: "Landmarks"
+- takeScreenshot: "Back to Landmarks"

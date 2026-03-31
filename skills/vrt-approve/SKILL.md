@@ -1,5 +1,7 @@
+---
+name: vrt-approve
+description: Approve current VRT captures as new baselines. Can approve all or specific screens selectively. Use after reviewing /swift-assist:vrt results.
 argument-hint: [SCREEN_NAME ...]
-description: Approve current VRT captures as new baselines. Can approve all screens or specific ones selectively. Use after reviewing /swift-assist:vrt results. Triggers on "approve baselines", "accept changes", "update baselines".
 ---
 
 # Swift Assist: VRT Approve
