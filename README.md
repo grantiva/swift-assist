@@ -16,7 +16,7 @@ A [Claude Code](https://claude.ai/claude-code) skill that turns your iOS develop
 ### Add the plugin
 
 ```
-/plugin install grantiva/swift-assist
+npx skills add grantiva/swift-assist
 ```
 
 ## Commands
