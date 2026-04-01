@@ -1,5 +1,5 @@
 ---
-name: flow
+name: run-flow
 description: Run a single named flow by name. Faster than /swift-assist:test when you're debugging one broken screen and don't want to wait for the full suite.
 argument-hint: "<flow-name> [--approve] [--json]"
 ---
@@ -11,10 +11,10 @@ Run a single named flow from `grantiva.yml` by name - capture its screenshot, co
 ## Usage
 
 ```
-/swift-assist:flow login
-/swift-assist:flow landmark-detail
-/swift-assist:flow checkout --approve
-/swift-assist:flow settings --json
+/swift-assist:run-flow login
+/swift-assist:run-flow landmark-detail
+/swift-assist:run-flow checkout --approve
+/swift-assist:run-flow settings --json
 ```
 
 ## Command Options
@@ -25,7 +25,7 @@ Run a single named flow from `grantiva.yml` by name - capture its screenshot, co
 
 ## Difference from /swift-assist:test
 
-`/swift-assist:test` runs all flows sequentially - useful for a full suite check, but slow when you're fixing one thing. `/swift-assist:flow` runs exactly one screen and reports immediately, making it fast to iterate on a failing screen without waiting for the other 11 to finish.
+`/swift-assist:test` runs all flows sequentially - useful for a full suite check, but slow when you're fixing one thing. `/swift-assist:run-flow` runs exactly one screen and reports immediately, making it fast to iterate on a failing screen without waiting for the other 11 to finish.
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ If no baseline exists for this screen, stop and prompt:
 No baseline found for "login".
 
 Run with --approve to capture and set a baseline:
-  /swift-assist:flow login --approve
+  /swift-assist:run-flow login --approve
 
 Or run /swift-assist:vrt --baseline to set baselines for all screens.
 ```
@@ -150,7 +150,7 @@ Visual differences detected:
   - Email field placeholder text changed from "Email" to "Email address"
 
 To approve this as the new baseline:
-  /swift-assist:flow login --approve
+  /swift-assist:run-flow login --approve
 
 To investigate what changed in source:
   git diff HEAD -- <path-to-login-view-file>

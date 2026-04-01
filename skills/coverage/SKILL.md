@@ -172,7 +172,7 @@ Recommended next steps:
 
   Medium impact:
     /swift-assist:vrt --baseline  (approve baselines for edit-landmark, plan-visit)
-    /swift-assist:flow GrantivaConfig --approve
+    /swift-assist:run-flow GrantivaConfig --approve
 
   Already good:
     Landmarks, Favorites, DeepLinks, CachingDemo, Feedback - fully covered
@@ -185,4 +185,4 @@ Recommended next steps:
 3. If the runner is not active and no doctor report exists, use source scanning as a fallback but clearly state it is an estimate
 4. Do not count `#Preview` views or `_` prefixed views (internal helpers) in the SwiftUI view total
 5. Sort the "what to tackle next" suggestions by estimated impact - screens with zero coverage first, then partial coverage
-6. If coverage is already above 80% across all categories, celebrate it and suggest running `/swift-assist:ci` to lock it in with automated PR checks
+6. If coverage is already above 80% across all categories, celebrate it and suggest running `/swift-assist:setup-ci` to lock it in with automated PR checks

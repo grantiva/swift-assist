@@ -20,7 +20,7 @@ Walk every screen of the running iOS app using computer use, inspect the view hi
 ## Command Options
 
 - `--screen=<ViewName>`: Only audit a specific screen instead of the full app
-- `--fix`: Automatically run `/swift-assist:fix` after the audit completes
+- `--fix`: Automatically run `/swift-assist:add-identifiers` after the audit completes
 - `--json`: Output findings as JSON for tooling integration
 
 ## Prerequisites
@@ -153,15 +153,15 @@ Coverage: 0/54 elements have identifiers (0%)
 
 ### Phase 4: Save Findings
 
-Save the report to `.grantiva/doctor-report.json` so that `/swift-assist:fix` can consume it.
+Save the report to `.grantiva/doctor-report.json` so that `/swift-assist:add-identifiers` can consume it.
 
 ### Phase 5: Optional Auto-Fix
 
-If `--fix` was specified, immediately invoke `/swift-assist:fix` with the saved report.
+If `--fix` was specified, immediately invoke `/swift-assist:add-identifiers` with the saved report.
 
 ## Important Rules
 
-1. NEVER modify source code in this command (unless `--fix` is specified, which delegates to `/swift-assist:fix`)
+1. NEVER modify source code in this command (unless `--fix` is specified, which delegates to `/swift-assist:add-identifiers`)
 2. Always take screenshots as evidence of what was found on each screen
 3. If you cannot reach a screen (e.g., requires login or API data), note it as "unreachable" and suggest adding mock services
 4. Do not suggest identifiers for non-interactive decorative elements

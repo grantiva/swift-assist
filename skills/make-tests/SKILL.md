@@ -28,7 +28,7 @@ Walk the running app with computer use, discover user flows, and generate granti
 
 1. App must be running in the simulator
 2. Grantiva runner session must be active (`grantiva runner start`)
-3. Ideally, run `/swift-assist:doctor` and `/swift-assist:fix` first so elements have accessibility identifiers
+3. Ideally, run `/swift-assist:doctor` and `/swift-assist:add-identifiers` first so elements have accessibility identifiers
 
 If no doctor report exists, warn:
 ```

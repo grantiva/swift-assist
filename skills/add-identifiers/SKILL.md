@@ -1,5 +1,5 @@
 ---
-name: fix
+name: add-identifiers
 description: Apply accessibility identifier fixes from a doctor report to Swift source files. Adds .accessibilityIdentifier() modifiers to interactive elements. Use after /swift-assist:doctor.
 argument-hint: "[--report=<path>] [--dry-run] [--screen=<ViewName>]"
 ---
@@ -11,10 +11,10 @@ Read the doctor report and apply `.accessibilityIdentifier()` modifiers to Swift
 ## Usage
 
 ```
-/swift-assist:fix
-/swift-assist:fix --dry-run
-/swift-assist:fix --screen=LoginView
-/swift-assist:fix --report=.grantiva/doctor-report.json
+/swift-assist:add-identifiers
+/swift-assist:add-identifiers --dry-run
+/swift-assist:add-identifiers --screen=LoginView
+/swift-assist:add-identifiers --report=.grantiva/doctor-report.json
 ```
 
 ## Command Options

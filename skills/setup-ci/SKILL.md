@@ -1,5 +1,5 @@
 ---
-name: ci
+name: setup-ci
 description: Generate a GitHub Actions workflow that runs Grantiva VRT in CI on every pull request. Use to add cloud visual regression testing with GitHub Check integration to your project.
 argument-hint: "[--output=<path>]"
 ---
@@ -11,8 +11,8 @@ Generate a GitHub Actions workflow file that runs Grantiva's visual regression t
 ## Usage
 
 ```
-/swift-assist:ci
-/swift-assist:ci --output=.github/workflows/vrt.yml
+/swift-assist:setup-ci
+/swift-assist:setup-ci --output=.github/workflows/vrt.yml
 ```
 
 ## Command Options
