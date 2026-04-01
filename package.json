@@ -1,0 +1,11 @@
+{
+  "name": "swift-assist",
+  "version": "1.0.0",
+  "description": "AI-assisted iOS testing pipeline using Grantiva CLI",
+  "author": "Kyle Browning",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grantiva/swift-assist"
+  }
+}

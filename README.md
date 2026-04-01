@@ -13,12 +13,10 @@ A [Claude Code](https://claude.ai/claude-code) skill that turns your iOS develop
 
 2. **Claude Code** with computer use enabled
 
-### Add the skill
-
-In your Claude Code settings, add this skill source:
+### Add the plugin
 
 ```
-grantiva/swift-assist
+/plugin install grantiva/swift-assist
 ```
 
 ## Commands
