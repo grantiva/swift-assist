@@ -33,30 +33,15 @@ cat grantiva.yml
 
 If `grantiva.yml` doesn't exist, tell the user to run `/swift-assist:init` first.
 
-### Phase 2: Confirm Booted Simulator
+### Phase 2: Build
 
-Check that the target simulator is booted:
-
-```bash
-xcrun simctl list devices booted --json
-```
-
-If it's not booted, boot it:
+Use Grantiva to build:
 
 ```bash
-xcrun simctl boot <DEVICE_UDID>
-open -a Simulator
+grantiva build
 ```
 
-### Phase 3: Build and Install
-
-Use Grantiva to build and install:
-
-```bash
-grantiva diff capture --scheme <SCHEME> --simulator "<SIMULATOR>"
-```
-
-This compiles the app, installs it on the simulator, and launches it. If `build_settings` are defined in `grantiva.yml`, they're applied automatically.
+This resolves the project, boots the simulator if needed, and compiles the app. If `build_settings` are defined in `grantiva.yml`, they're applied automatically.
 
 If the build fails, report the full error output and stop. Do not proceed.
 

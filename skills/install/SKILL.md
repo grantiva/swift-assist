@@ -1,72 +1,51 @@
 ---
 name: install
-description: Install a pre-built app binary onto the simulator without rebuilding. Use when you have a compiled .app file and want to skip the build step, such as in CI or when using a build artifact.
-argument-hint: "[--app-file=<path>] [--simulator=<name>]"
+description: Build, install, and launch the app on the simulator using Grantiva. Use when you need the full build-install-launch cycle, mirroring what CI does. Prefer this over build when you want the app running immediately after compilation.
+argument-hint: "[--scheme=<name>] [--simulator=<name>]"
 ---
 
 # Swift Assist: Install
 
-Install a pre-built `.app` binary onto the simulator using Grantiva. Use this when you already have a compiled build - for example, when CI produced a binary, when you built with custom flags outside of Grantiva, or when you want to test a specific artifact without rebuilding.
+Build, install, and launch the app on the simulator using Grantiva. This mirrors the full CI flow. Use this when you want the app running and ready for testing immediately after a code change.
+
+The difference from `/swift-assist:build`: `build` compiles only. `install` compiles, installs on the simulator, and launches the app.
 
 ## Usage
 
 ```
-/swift-assist:install --app-file=./build/MyApp.app
-/swift-assist:install --app-file=./DerivedData/Build/Products/Debug-iphonesimulator/MyApp.app
-/swift-assist:install --app-file=./MyApp.app --simulator="iPhone 16 Pro"
+/swift-assist:install
+/swift-assist:install --scheme=MyApp
+/swift-assist:install --scheme=MyApp --simulator="iPhone 16 Pro"
 ```
 
 ## Command Options
 
-- `--app-file=<path>`: Path to the `.app` bundle to install (required)
+- `--scheme=<name>`: Xcode scheme to build (reads from `grantiva.yml` if omitted)
 - `--simulator=<name>`: Target simulator (reads from `grantiva.yml` if omitted)
 
 ## What This Command Does
 
-### Phase 1: Locate the App File
+### Phase 1: Read Config
 
-If `--app-file` was not provided, search for a `.app` bundle in common locations:
-
-```bash
-find . -name "*.app" -path "*/Debug-iphonesimulator/*" -not -path "*/node_modules/*" | head -5
-```
-
-If multiple are found, list them and ask the user which to use. If none are found, tell the user to run `/swift-assist:build` first.
-
-### Phase 2: Confirm Booted Simulator
-
-Check that the target simulator is booted:
+Load scheme and simulator from `grantiva.yml` if not provided via arguments:
 
 ```bash
-xcrun simctl list devices booted --json
+cat grantiva.yml
 ```
 
-If not booted, boot it:
+If `grantiva.yml` doesn't exist, tell the user to run `/swift-assist:init` first.
+
+### Phase 2: Install and Launch
+
+Use Grantiva to build, install, and launch:
 
 ```bash
-xcrun simctl boot <DEVICE_UDID>
-open -a Simulator
+grantiva install
 ```
 
-### Phase 3: Install and Launch
+This resolves the project, boots the simulator if needed, builds the app, installs it, and launches it - mirroring the CI flow.
 
-Use Grantiva to install the pre-built binary:
-
-```bash
-grantiva diff capture --app-file <APP_FILE_PATH>
-```
-
-This installs the `.app` on the simulator and launches it. No compilation step.
-
-### Phase 4: Read Bundle ID
-
-Extract the bundle ID from the installed app:
-
-```bash
-/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier" <APP_FILE_PATH>/Info.plist
-```
-
-### Phase 5: Start Runner
+### Phase 3: Start Runner
 
 Start the Grantiva runner so the hierarchy and doctor commands can inspect the app:
 
@@ -74,31 +53,16 @@ Start the Grantiva runner so the hierarchy and doctor commands can inspect the a
 grantiva runner start --bundle-id <BUNDLE_ID> --simulator "<SIMULATOR>"
 ```
 
-### Phase 6: Confirm
+### Phase 4: Confirm
 
 ```
 Install complete.
 
-  App:        <APP_FILE_PATH>
+  Scheme:     <SCHEME>
   Simulator:  <SIMULATOR>
   Bundle ID:  <BUNDLE_ID>
 
 App is running. Run /swift-assist:doctor to audit or /swift-assist:test to run flows.
-```
-
-## Common Use Cases
-
-**Testing a UI_TESTING build:**
-```bash
-xcodebuild build -scheme MyApp \
-  SWIFT_ACTIVE_COMPILATION_CONDITIONS="DEBUG UI_TESTING" \
-  -derivedDataPath ./DerivedData
-/swift-assist:install --app-file=./DerivedData/Build/Products/Debug-iphonesimulator/MyApp.app
-```
-
-**Installing a CI artifact:**
-```
-/swift-assist:install --app-file=./artifacts/MyApp.app
 ```
 
 ## Important Rules
