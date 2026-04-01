@@ -1,7 +1,7 @@
 ---
 name: fix
 description: Apply accessibility identifier fixes from a doctor report to Swift source files. Adds .accessibilityIdentifier() modifiers to interactive elements. Use after /swift-assist:doctor.
-argument-hint: [--report=<path>] [--dry-run] [--screen=<ViewName>]
+argument-hint: "[--report=<path>] [--dry-run] [--screen=<ViewName>]"
 ---
 
 # Swift Assist: Fix

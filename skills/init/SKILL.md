@@ -1,7 +1,7 @@
 ---
 name: init
 description: Initialize a Grantiva project, build the app, and launch it in the simulator. Use when starting a new swift-assist workflow or first-time project configuration.
-argument-hint: [--scheme=<name>] [--bundle-id=<id>] [--simulator=<name>]
+argument-hint: "[--scheme=<name>] [--bundle-id=<id>] [--simulator=<name>]"
 ---
 
 # Swift Assist: Init
